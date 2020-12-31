@@ -37,8 +37,8 @@ def parseJson(text):
             s='问题:' + str(id) + title
             print(s)
             #写入文件
-            with open(r"week02\bb.txt","a",encoding="utf-8") as f:
-                 f.write("%s\n"%(s))
+            save(s)
+           
                 
         
         elif type == 'article':
@@ -53,8 +53,8 @@ def parseJson(text):
             print("专栏：",id,title)
             s='专栏:'+ str(id) + title
             #写入文件
-            with open(r"week02\bb.txt","a",encoding="utf-8") as f:
-                 f.write("%s\n"%(s))
+            save(s)
+            
  
         elif type == 'question':
             # 问题
@@ -65,10 +65,13 @@ def parseJson(text):
             print("问题：",id,title)
             s='问题：'+ str(id) + title
             #写入文件
-            with open(r"week02\bb.txt","a",encoding="utf-8") as f:
-                 f.write("%s\n"%(s))
- 
+            save(s)
+            
     return nextUrl
+
+def save(s):
+    with open(r"week02\bb.txt","a",encoding="utf-8") as f:
+         f.write("%s\n"%(s))
 
  
 if __name__ == '__main__':
