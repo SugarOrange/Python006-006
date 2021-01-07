@@ -1,0 +1,10 @@
+5.使用 MySQL 官方文档，学习通过 sql 语句为上题中的 id 和 name 增加索引，并验证。根据执行时间，增加索引以后是否查询速度会增加？请论述原因，并思考什么样的场景下增加索引才有效。
+
+mysql > ALTER TABLE Table1 add index idx1(`id`)
+场景：业务sql对于Table1表的SELECT的情况为-> 以id列的值为条件进行查询
+
+mysql > ALTER TABLE Table1 add index idx2(`name`)
+场景：业务sql对于Table1表的SELECT的情况为-> 以name列的值为条件进行查询，若name列为字符格式，索引创建优先满足distict(left(name,N)),查找最优左前缀重复度创建索引
+
+mysql > ALTER TABLE Table1 add index idx3(`id`,`name`)
+场景：业务sql对于Table1表的SELECT的情况为-> 以id列值为条件，查找对应的name列的值，开启下推情况下，效果明显
