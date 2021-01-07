@@ -1,0 +1,7 @@
+将修改字符集的配置项、验证字符集的 SQL 语句作为作业内容提交
+alter database testdb character set utf8mb4;
+
+
+将增加远程用户的 SQL 语句作为作业内容提交
+CREATE USER 'testroot'@'%' IDENTIFIED BY 'testpass';
+GRANT ALL PRIVILEGES ON testdb.* TO 'root' @'%';
